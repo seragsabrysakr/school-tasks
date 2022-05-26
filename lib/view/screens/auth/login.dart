@@ -141,7 +141,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                               focusNode: emailFocusNode,
                               type: TextInputType.emailAddress,
                               controller: emailcontroller,
-                              label: txt.getTexts(email).toString(),
+                              hint: txt.getTexts(email).toString(),
                               validator: (valeu) {
                                 if (valeu!.isEmpty) {
                                   return txt.getTexts(formerror).toString();
@@ -166,7 +166,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                   ? Icons.visibility
                                   : Icons.visibility_off,
                               controller: passcontroller,
-                              label: txt.getTexts(password).toString(),
+                              hint: txt.getTexts(password).toString(),
                               validator: (valeu) {
                                 if (valeu!.isEmpty) {
                                   return txt.getTexts(formerror).toString();

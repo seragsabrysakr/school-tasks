@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:schooltasks/constants/colors.dart';
 import 'package:schooltasks/constants/strings.dart';
+import 'package:schooltasks/model/taskmodel.dart';
 import 'package:schooltasks/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 
 class TaskWidget extends StatelessWidget {
-  final String taskTitle;
-  final String taskDescription;
-  final String? taskId;
-  final String? uploadedBy;
-  final bool? isDone;
-
-  const TaskWidget(
-      {required this.taskTitle,
-      required this.taskDescription,
-      Key? key,
-      this.taskId,
-      this.uploadedBy,
-      this.isDone})
-      : super(key: key);
+  final TaskModel task;
+  const TaskWidget({
+    Key? key,
+    required this.task,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +31,17 @@ class TaskWidget extends StatelessWidget {
                         onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children:  [
-                            Icon(
+                          children: [
+                            const Icon(
                               Icons.delete,
                               color: Colors.red,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Text(
                               txt.getTexts(deletetask).toString(),
-
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.red,
                               ),
                             )
@@ -71,13 +63,20 @@ class TaskWidget extends StatelessWidget {
           child: const CircleAvatar(
             backgroundColor: Color.fromARGB(0, 80, 1, 1),
             radius: 20,
+            child: Icon(
+              Icons.alarm,
+              size: 40,
+            ),
           ),
         ),
         title: Text(
-          taskTitle,
+          task.taskTitle,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: secondcolor,
+          ),
         ),
         subtitle: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -88,7 +87,7 @@ class TaskWidget extends StatelessWidget {
               color: Colors.pink.shade800,
             ),
             Text(
-              taskDescription,
+              task.taskDescription,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontSize: 16),

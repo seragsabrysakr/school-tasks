@@ -22,11 +22,24 @@ class LanguageProvider with ChangeNotifier {
     resethint: '  اكتب بريدك الالكنروني هنا',
 //strings of home screen
     alltasks: 'كل المهمات',
+
     taskTitle: 'العنوان الرئيسي',
     csubtitle: 'العنوان الفرعي',
     taskDescription: 'المحتوي',
     deletetask: 'مسح المهمة',
-
+//logout
+    wanalogout: 'هل انت متأكد من تسجيل الخروج',
+    //language
+    chooselang: 'تغيير اللغة',
+    //drawer
+    account: 'حسابي ',
+    registered: 'الموظفين',
+    addtask: 'أضافة مهمه',
+    logouts: 'تسجيل الخروج',
+     //category
+    category: 'الاقسام',
+    deadline:'الموعد المقرر للمهمه',
+    upload: 'أضافة '
   };
   Map<String, Object> textsEn = {
     // strings for authentication
@@ -45,13 +58,24 @@ class LanguageProvider with ChangeNotifier {
     resetnow: 'Reset Now',
     resethint: 'Enter your Email here',
     //strings of home screen
-    alltasks:'AllTasks',
-    taskTitle:'title',
-    csubtitle:'subtitle',
-    taskDescription:'content',
-    deletetask:  'Delete Task',
-
-
+    alltasks: 'AllTasks',
+    taskTitle: 'Task Title',
+    csubtitle: 'subtitle',
+    taskDescription: 'Task Description',
+    deletetask: 'Delete Task',
+    //logout
+    wanalogout: 'Are you sure you \n want to log out?',
+    //language
+    chooselang: 'Chang Language',
+    //drawer
+    account: 'My account',
+    registered: 'Registered workes',
+    addtask: 'Add task',
+    logouts: 'Logout',
+    //category
+     category : 'Category',
+     deadline:'Tasks Deadline Date',
+     upload:'Upload'
   };
 
   changeLan(bool lan) async {
@@ -67,8 +91,11 @@ class LanguageProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Object getTexts(String txt) {
-    if (isEn == true) return textsEn[txt]!;
-    return textsAr[txt]!;
+  Object? getTexts(String txt) {
+    if (isEn == true) {
+      return textsEn[txt] ?? txt;
+    } else {
+      return textsAr[txt] ?? textsAr;
+    }
   }
 }

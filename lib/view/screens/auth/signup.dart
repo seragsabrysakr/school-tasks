@@ -164,7 +164,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                             focusNode: _fullnameFocusNode,
                             type: TextInputType.name,
                             controller: _fullnameTextController,
-                            label: txt.getTexts(fullname).toString(),
+                            hint: txt.getTexts(fullname).toString(),
                             validator: (valeu) {
                               if (valeu!.isEmpty) {
                                 return txt.getTexts(formerror).toString();
@@ -182,7 +182,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                             focusNode: _emailFocusNode,
                             type: TextInputType.emailAddress,
                             controller: _emailTextController,
-                            label: txt.getTexts(email).toString(),
+                            hint: txt.getTexts(email).toString(),
                             validator: (valeu) {
                               if (valeu!.isEmpty) {
                                 return txt.getTexts(formerror).toString();
@@ -208,7 +208,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                                 ? Icons.visibility
                                 : Icons.visibility_off,
                             controller: _passTextController,
-                            label: txt.getTexts(password).toString(),
+                            hint: txt.getTexts(password).toString(),
                             validator: (valeu) {
                               if (valeu!.isEmpty) {
                                 return txt.getTexts(formerror).toString();
@@ -225,7 +225,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                             focusNode: _positionFocusNode,
                             type: TextInputType.name,
                             controller: _positionCPTextController,
-                            label: txt.getTexts(position).toString(),
+                            hint: txt.getTexts(position).toString(),
                             validator: (valeu) {
                               if (valeu!.isEmpty) {
                                 return txt.getTexts(formerror).toString();

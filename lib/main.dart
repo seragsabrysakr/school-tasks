@@ -12,7 +12,8 @@ void main() async {
   SharedPreferences.getInstance().then((value) {
     isEn = value.getBool('lang') ?? true;
   });
-  runApp(MultiProvider(providers: [
+  runApp(
+    MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (_) => LanguageProvider(),
     ),

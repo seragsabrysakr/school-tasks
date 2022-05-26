@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:schooltasks/constants/colors.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final bool obscure;
   final bool align;
   final String? initialValue;
   final int? max;
+  final Color fillcolor;
+  final bool enabled;
   final int? min;
+  final int? maxlenth;
   final String? Function(String?)? validator;
-  final String? label;
+  final String? hint;
+  final String? lable;
   final TextEditingController? controller;
   final IconData? suffix;
   final TextInputType? type;
@@ -22,7 +26,7 @@ class CustomTextField extends StatelessWidget {
       this.action,
       this.initialValue,
       required this.focusNode,
-      required this.label,
+      required this.hint,
       this.max = 1,
       this.min,
       this.obscure = false,
@@ -31,35 +35,48 @@ class CustomTextField extends StatelessWidget {
       this.type,
       required this.validator,
       this.visiblpass,
-      Key? key})
+      Key? key,
+      this.lable,
+      this.fillcolor = Colors.white,
+      this.enabled = true,
+      this.maxlenth})
       : super(key: key);
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onEditingComplete: onedit,
-      textInputAction: action,
-      maxLines: max,
-      minLines: min,
-      initialValue: initialValue,
-      controller: controller,
+      enabled: widget.enabled,
+      maxLength: widget.maxlenth,
+      onTap: widget.onedit,
+      textInputAction: widget.action,
+      maxLines: widget.max,
+      minLines: widget.min,
+      initialValue: widget.initialValue,
+      controller: widget.controller,
       style: const TextStyle(color: txtcolor),
       cursorColor: maincolor,
-      keyboardType: type,
-      obscureText: obscure,
-      validator: validator,
+      keyboardType: widget.type,
+      obscureText: widget.obscure,
+      validator: widget.validator,
       decoration: InputDecoration(
-          fillColor: Colors.white,
+          counterStyle: const TextStyle(color: txtcolor),
+          fillColor: widget.fillcolor,
           filled: true,
-          alignLabelWithHint: align,
+          alignLabelWithHint: widget.align,
           suffixIcon: IconButton(
             icon: Icon(
-              suffix,
+              widget.suffix,
               color: Colors.grey,
             ),
-            onPressed: visiblpass,
+            onPressed: widget.visiblpass,
           ),
-          hintText: label,
+          labelText: widget.lable,
+          hintText: widget.hint,
           hintStyle: const TextStyle(color: txtcolor),
           // floatingLabelStyle: ,
           // contentPadding: EdgeInsets.all(20),
