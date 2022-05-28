@@ -28,8 +28,8 @@ class _LogoutState extends State<Logout> {
             decoration: BoxDecoration(
                 color: const Color(0xFFFFFFFF),
                 borderRadius: BorderRadius.circular(10)),
-            width: MediaQuery.of(context).size.width * .6,
-            height: MediaQuery.of(context).size.height * 0.3,
+            width: MediaQuery.of(context).size.width * .8,
+            height: MediaQuery.of(context).size.height * 0.34,
             child: ListView(
               children: [
                 Center(

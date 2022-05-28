@@ -13,6 +13,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final String? hint;
   final String? lable;
+  final TextStyle style;
   final TextEditingController? controller;
   final IconData? suffix;
   final TextInputType? type;
@@ -39,7 +40,7 @@ class CustomTextField extends StatefulWidget {
       this.lable,
       this.fillcolor = Colors.white,
       this.enabled = true,
-      this.maxlenth})
+      this.maxlenth,  this.style=const TextStyle(color: txtcolor)})
       : super(key: key);
 
   @override

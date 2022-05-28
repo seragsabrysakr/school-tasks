@@ -20,15 +20,13 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      child: Text(
-        data,
-        style: TextStyle(
-            decoration: decoration,
-            fontSize: size,
-            fontWeight: weight,
-            color: color),
-      ),
+    return Text(
+      data,
+      style: TextStyle(
+          decoration: decoration,
+          fontSize: size,
+          fontWeight: weight,
+          color: color),
     );
   }
 }

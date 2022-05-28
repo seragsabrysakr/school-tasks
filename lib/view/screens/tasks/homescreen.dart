@@ -8,6 +8,7 @@ import 'package:schooltasks/view/widget/drawer.dart';
 import 'package:schooltasks/view/widget/taskwidget.dart';
 import 'package:schooltasks/constants/functions.dart';
 import 'package:schooltasks/view/widget/stext.dart';
+
 class TasksHomeScreen extends StatefulWidget {
   const TasksHomeScreen({Key? key}) : super(key: key);
 
@@ -17,6 +18,7 @@ class TasksHomeScreen extends StatefulWidget {
 
 class _TasksHomeScreenState extends State<TasksHomeScreen> {
   var task = TaskModel(
+      id: 1,
       taskTitle: taskTitle,
       taskDescription: taskDescription,
       taskId: taskId,
@@ -44,7 +46,7 @@ class _TasksHomeScreenState extends State<TasksHomeScreen> {
                   showDialog(
                       context: context,
                       builder: (context) {
-                        return  AlertDialog(
+                        return AlertDialog(
                           title: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -84,15 +86,12 @@ class _TasksHomeScreenState extends State<TasksHomeScreen> {
                                             InkWell(
                                               onTap: () {
                                                 setState(() {
-                                                  
-                                                  categ = taskCategoryList[index];
-                                                  // print(categ);
+
                                                   navigateback(context);
                                                 });
                                               },
                                               child: CustomText(
-                                                data:
-                                                   taskCategoryList[index],
+                                                data: taskCategoryList[index],
                                                 color: secondcolor,
                                                 weight: FontWeight.bold,
                                                 size: 20,

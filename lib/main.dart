@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:schooltasks/view/screens/drawerscreens/userprofile.dart';
+import 'package:schooltasks/view/screens/tasks/homescreen.dart';
 import 'constants/strings.dart';
 import 'providers/language_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
-import 'view/screens/tasks/taskhomescreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

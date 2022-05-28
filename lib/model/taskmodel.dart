@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 class TaskModel {
+    final int id;
   final String taskTitle;
   final String taskDescription;
   final String taskId;
   final String uploadedBy;
   final bool isDone;
   TaskModel({
+    required this.id,
     required this.taskTitle,
     required this.taskDescription,
     required this.taskId,
@@ -15,6 +17,7 @@ class TaskModel {
   });
 
   TaskModel copyWith({
+    int? id,
     String? taskTitle,
     String? taskDescription,
     String? taskId,
@@ -22,6 +25,7 @@ class TaskModel {
     bool? isDone,
   }) {
     return TaskModel(
+      id: id ?? this.id,
       taskTitle: taskTitle ?? this.taskTitle,
       taskDescription: taskDescription ?? this.taskDescription,
       taskId: taskId ?? this.taskId,
@@ -33,6 +37,7 @@ class TaskModel {
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
   
+    result.addAll({'id': id});
     result.addAll({'taskTitle': taskTitle});
     result.addAll({'taskDescription': taskDescription});
     result.addAll({'taskId': taskId});
@@ -44,6 +49,7 @@ class TaskModel {
 
   factory TaskModel.fromMap(Map<String, dynamic> map) {
     return TaskModel(
+      id: map['id']?.toInt() ?? 0,
       taskTitle: map['taskTitle'] ?? '',
       taskDescription: map['taskDescription'] ?? '',
       taskId: map['taskId'] ?? '',
@@ -58,7 +64,7 @@ class TaskModel {
 
   @override
   String toString() {
-    return 'TaskModel(taskTitle: $taskTitle, taskDescription: $taskDescription, taskId: $taskId, uploadedBy: $uploadedBy, isDone: $isDone)';
+    return 'TaskModel(id: $id, taskTitle: $taskTitle, taskDescription: $taskDescription, taskId: $taskId, uploadedBy: $uploadedBy, isDone: $isDone)';
   }
 
   @override
@@ -66,6 +72,7 @@ class TaskModel {
     if (identical(this, other)) return true;
   
     return other is TaskModel &&
+      other.id == id &&
       other.taskTitle == taskTitle &&
       other.taskDescription == taskDescription &&
       other.taskId == taskId &&
@@ -75,7 +82,8 @@ class TaskModel {
 
   @override
   int get hashCode {
-    return taskTitle.hashCode ^
+    return id.hashCode ^
+      taskTitle.hashCode ^
       taskDescription.hashCode ^
       taskId.hashCode ^
       uploadedBy.hashCode ^

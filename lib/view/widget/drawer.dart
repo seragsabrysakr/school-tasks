@@ -4,9 +4,12 @@ import 'package:schooltasks/constants/functions.dart';
 import 'package:schooltasks/constants/strings.dart';
 import 'package:schooltasks/providers/language_provider.dart';
 import 'package:schooltasks/view/screens/drawerscreens/addtaskscreen.dart';
+import 'package:schooltasks/view/screens/drawerscreens/allworkers.dart';
 import 'package:schooltasks/view/screens/drawerscreens/languagedialog.dart';
 import 'package:schooltasks/view/screens/drawerscreens/logoutdialog.dart';
 import 'package:provider/provider.dart';
+import 'package:schooltasks/view/screens/drawerscreens/userprofile.dart';
+import 'package:schooltasks/view/screens/tasks/homescreen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -41,18 +44,24 @@ class DrawerWidget extends StatelessWidget {
             _listTiles(
                 label: lan.getTexts(account).toString(),
                 fct: () {
+                  navigateto(context: context, screen: const Profile());
+
                   // _navigateToProfileScreen(context);
                 },
                 icon: Icons.settings_outlined),
             _listTiles(
                 label: lan.getTexts(registered).toString(),
                 fct: () {
+                  navigateto(
+                      context: context, screen: const RegestiredWorkers());
                   // _navigateToAllWorkerScreen(context);
                 },
                 icon: Icons.workspaces_outline),
             _listTiles(
-                label: lan.getTexts(addtask).toString(),
+                label: lan.getTexts(alltasks).toString(),
                 fct: () {
+                  navigateto(context: context, screen: const TasksHomeScreen());
+
                   // _navigateToAddTaskScreen(context);
                 },
                 icon: Icons.add_task_outlined),

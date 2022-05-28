@@ -46,5 +46,8 @@ String chooselang = 'Change Language';
 String deadline = 'Tasks Deadline Date';
 String upload = 'Upload';
 
-//global
-String categ = '';
+//profile
+String profile='Profile';
+String contact='Contact Info';
+String phone='Phone Number';
+

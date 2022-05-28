@@ -1,6 +1,6 @@
 import 'package:schooltasks/constants/functions.dart';
 import 'package:schooltasks/constants/strings.dart';
-import 'package:schooltasks/view/screens/tasks/taskhomescreen.dart';
+import 'package:schooltasks/view/screens/tasks/homescreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import '../../../providers/language_provider.dart';

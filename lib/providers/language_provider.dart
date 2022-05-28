@@ -39,7 +39,10 @@ class LanguageProvider with ChangeNotifier {
      //category
     category: 'الاقسام',
     deadline:'الموعد المقرر للمهمه',
-    upload: 'أضافة '
+    upload: 'أضافة ',
+    profile:'ملفي الشخصي',
+    contact:'معلومات الاتصال',
+    phone:'رقم التليفون',
   };
   Map<String, Object> textsEn = {
     // strings for authentication
@@ -75,7 +78,11 @@ class LanguageProvider with ChangeNotifier {
     //category
      category : 'Category',
      deadline:'Tasks Deadline Date',
-     upload:'Upload'
+     upload:'Upload',
+    profile:'Profile',
+    contact:'Contact Info',
+    phone:'Phone Number',
+
   };
 
   changeLan(bool lan) async {
